@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_195041) do
 
   create_table "payments", force: :cascade do |t|
     t.string "account_code", limit: 20
-    t.string "bbank_code", limit: 9
+    t.string "bank_code", limit: 9
     t.string "counterparty_account_number", limit: 20
     t.string "counterparty_bank_bic", limit: 9
     t.string "counterparty_inn", limit: 12
