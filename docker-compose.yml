@@ -6,11 +6,12 @@ services:
       context: .
       dockerfile: ./.dockerdev/Dockerfile
       args:
-        RUBY_VERSION: '2.6.5'
-        PG_MAJOR: '12'
-        NODE_MAJOR: '12'
-        YARN_VERSION: '1.19.0'
         BUNDLER_VERSION: '2.0.2'
+        NODE_MAJOR: '12'
+        PG_MAJOR: '12'
+        RABBIT_VERSION: '3.8'
+        RUBY_VERSION: '2.6.5'
+        YARN_VERSION: '1.19.0'
     image: paymaster-dev:1.0.0
     tmpfs:
       - /tmp
@@ -39,6 +40,7 @@ services:
       - EDITOR=nano
     depends_on:
       - postgres
+      - rabbitmq
       - redis
 
   runner:
@@ -69,6 +71,16 @@ services:
     ports:
       - 5432
 
+  rabbitmq:
+    image: rabbitmq:3.8
+    volumes:
+      - rabbitmq:/data
+    ports:
+      - '4369:4369'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+
   redis:
     image: redis:5.0.6-alpine
     volumes:
@@ -93,6 +105,7 @@ services:
 
 volumes:
   postgres:
+  rabbitmq:
   redis:
   bundle:
   node_modules:

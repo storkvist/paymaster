@@ -18,6 +18,11 @@ interaction:
     command: bundle
     compose_run_options: [no-deps]
 
+  rabbitmqctl:
+    service: rabbitmq
+    command: rabbitmqctl
+    compose_run_options: [no-deps]
+
   rake:
     service: backend
     command: bundle exec rake
@@ -48,7 +53,7 @@ interaction:
 
   psql:
     service: postgres
-    command: psql -h postgres -U postgres -d example_app_dev
+    command: psql -h postgres -U postgres -d paymaster_development
 
   'redis-cli':
     service: redis

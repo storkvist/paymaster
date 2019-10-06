@@ -1,9 +1,9 @@
 ARG RUBY_VERSION
 FROM ruby:$RUBY_VERSION
 
-ARG PG_MAJOR
-ARG NODE_MAJOR
 ARG BUNDLER_VERSION
+ARG NODE_MAJOR
+ARG PG_MAJOR
 ARG YARN_VERSION
 
 RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
