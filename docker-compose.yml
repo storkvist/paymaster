@@ -32,6 +32,7 @@ services:
       - RAILS_ENV=${RAILS_ENV:-development}
       - REDIS_URL=redis://redis:6379/
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
       - BOOTSNAP_CACHE_DIR=/bundle/bootsnap
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - WEB_CONCURRENCY=1
@@ -72,13 +73,10 @@ services:
       - 5432
 
   rabbitmq:
-    image: rabbitmq:3.8
+    image: rabbitmq:3.8-management
     volumes:
       - rabbitmq:/data
     ports:
-      - '4369:4369'
-      - '5672:5672'
-      - '25672:25672'
       - '15672:15672'
 
   redis:
