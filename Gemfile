@@ -3,33 +3,34 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.5"
 
-gem "bootsnap", ">= 1.4.2", require: false
-gem "pg", ">= 0.18", "< 2.0"
-gem "puma", "~> 3.11"
-gem "rails", "~> 6.0.0"
-gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0"
+gem "bootsnap", require: false
+gem "pg"
+gem "puma"
+gem "rails"
+gem "sneakers"
+gem "turbolinks"
+gem "webpacker"
 
 group :development do
-  gem "listen", ">= 3.0.5", "< 3.2"
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
-  gem "web-console", ">= 3.3.0"
+  gem "listen"
+  gem "web-console"
 end
 
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug"
+  gem "rspec-rails"
   gem "rubocop"
+  gem "rubocop-performance"
   gem "rubocop-rails"
   gem "rubocop-rspec"
   gem "rubocop-thread_safety"
-  gem "standard"
+  gem "standard", ">= 0.1.0"
 end
 
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5"
+# gem "sass-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.7"
+# gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
